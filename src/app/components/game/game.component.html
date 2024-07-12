@@ -2,7 +2,7 @@
   <p id="temporizador" style="display: contents; color: red;" title="{{ timeLeft }}">{{ timeLeft }}</p>
   <h2 id="question">{{ currentQuestion.question }}</h2>
 
-  <p id="progress">QUESTOES</p>
+  <p id="progress">{{ questionIndex + 1 }} de {{ totalQuestions }}</p>
   <div id="choices">
     <button class="button" id="btn0" (click)="checkAnswer(0)"
             [ngClass]="{
