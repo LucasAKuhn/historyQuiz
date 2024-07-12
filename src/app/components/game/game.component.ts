@@ -8,7 +8,7 @@ import { questions, fisherYatesShuffle } from '../../model/questions';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit, OnDestroy {
-  timeLeft: number = 10;
+  timeLeft: number = 1000;
   interval: any;
   questions: any[] = [];
   currentQuestion: any = {};
