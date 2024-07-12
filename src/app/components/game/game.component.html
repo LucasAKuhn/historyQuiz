@@ -4,8 +4,26 @@
 
   <p id="progress">QUESTOES</p>
   <div id="choices">
-    <button class="button" id="btn0" (click)="checkAnswer(0)">{{ currentQuestion.choices[0] }}</button>
-    <button class="button" id="btn1" (click)="checkAnswer(1)">{{ currentQuestion.choices[1] }}</button>
-    <button class="button" id="btn2" (click)="checkAnswer(2)">{{ currentQuestion.choices[2] }}</button>
+    <button class="button" id="btn0" (click)="checkAnswer(0)"
+            [ngClass]="{
+              'correct-answer': currentQuestion.choices[0] === currentQuestion.answer && answerChosen,
+              'wrong-answer': currentQuestion.choices[0] !== currentQuestion.answer && answerChosen && answerIndex === 0
+            }">
+      {{ currentQuestion.choices[0] }}
+    </button>
+    <button class="button" id="btn1" (click)="checkAnswer(1)"
+            [ngClass]="{
+              'correct-answer': currentQuestion.choices[1] === currentQuestion.answer && answerChosen,
+              'wrong-answer': currentQuestion.choices[1] !== currentQuestion.answer && answerChosen && answerIndex === 1
+            }">
+      {{ currentQuestion.choices[1] }}
+    </button>
+    <button class="button" id="btn2" (click)="checkAnswer(2)"
+            [ngClass]="{
+              'correct-answer': currentQuestion.choices[2] === currentQuestion.answer && answerChosen,
+              'wrong-answer': currentQuestion.choices[2] !== currentQuestion.answer && answerChosen && answerIndex === 2
+            }">
+      {{ currentQuestion.choices[2] }}
+    </button>
   </div>
 </div>

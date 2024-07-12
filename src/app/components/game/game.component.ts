@@ -13,7 +13,8 @@ export class GameComponent implements OnInit, OnDestroy {
   currentQuestion: any = {};
   questionIndex: number = 0;
   score: number = 0;
-  answerChosen: boolean = false; // Flag para controlar se uma resposta já foi escolhida
+  answerChosen: boolean = false;
+  answerIndex: number = -1; // Armazena o índice da resposta escolhida
 
   ngOnInit(): void {
     fisherYatesShuffle(questions);
@@ -30,7 +31,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
   startTimer() {
     this.interval = setInterval(() => {
-      if (this.timeLeft > 0 && !this.answerChosen) { // Verifica se uma resposta já foi escolhida
+      if (this.timeLeft > 0 && !this.answerChosen) {
         this.timeLeft--;
       } else {
         clearInterval(this.interval);
@@ -48,7 +49,8 @@ export class GameComponent implements OnInit, OnDestroy {
       this.currentQuestion = this.questions[this.questionIndex];
       this.shuffleChoices();
       this.startTimer();
-      this.answerChosen = false; // Reseta a flag de resposta escolhida
+      this.answerChosen = false;
+      this.answerIndex = -1; // Reseta o índice da resposta escolhida
     } else {
       console.log('Jogo finalizado!');
     }
@@ -59,11 +61,12 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   checkAnswer(index: number) {
-    if (!this.answerChosen) { // Verifica se uma resposta já foi escolhida
+    if (!this.answerChosen) {
       this.answerChosen = true;
+      this.answerIndex = index; // Armazena o índice da resposta escolhida
       const selectedChoice = this.currentQuestion.choices[index];
       if (selectedChoice === this.currentQuestion.answer) {
-        this.score += 10; // Incrementa a pontuação em 10 pontos
+        this.score += 10;
         console.log('Resposta correta! Pontuação: ', this.score);
       } else {
         console.log('Resposta incorreta!');

@@ -46,11 +46,19 @@
   transition: 0.5s;
 }
 
-.button:hover {
-  cursor: pointer;
-  background-color: #0A6394;
-  transition: 1s;
+.correct-answer {
+  background-color: green;
 }
+
+.wrong-answer {
+  background-color: red;
+}
+
+//.button:hover {
+//  cursor: pointer;
+//  background-color: #0A6394;
+//  transition: 1s;
+//}
 
 
 
