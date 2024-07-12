@@ -43,12 +43,10 @@ export class GameComponent implements OnInit, OnDestroy {
       this.questionIndex++;
       this.currentQuestion = this.questions[this.questionIndex];
       this.timeLeft = 10;
-      this.shuffleChoices(); // Chama o método para embaralhar as escolhas
+      this.shuffleChoices();
       this.startTimer();
     } else {
-      // Lógica para finalizar o jogo
       console.log('Jogo finalizado!');
-      // Por exemplo, você pode reiniciar o jogo ou mostrar uma mensagem de conclusão
     }
   }
 
