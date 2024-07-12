@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import { questions, fisherYatesShuffle } from '../../model/questions';
 
 @Component({
@@ -15,8 +15,8 @@ export class GameComponent implements OnInit, OnDestroy {
   questionIndex: number = 0;
   score: number = 0;
   answerChosen: boolean = false;
-  answerIndex: number = -1; // Armazena o índice da resposta escolhida
-  totalQuestions: number = 5; // Total de perguntas que o jogo deve ter
+  answerIndex: number = -1;
+  totalQuestions: number = 5;
 
   constructor(private router: Router) { }
 
@@ -48,16 +48,16 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   nextQuestion() {
-    if (this.questionIndex < this.totalQuestions - 1) { // Verifica se ainda não chegou na última pergunta
+    if (this.questionIndex < this.totalQuestions - 1) {
       this.questionIndex++;
       this.currentQuestion = this.questions[this.questionIndex];
       this.shuffleChoices();
       this.startTimer();
       this.answerChosen = false;
-      this.answerIndex = -1; // Reseta o índice da resposta escolhida
+      this.answerIndex = -1;
     } else {
       console.log('Jogo finalizado!');
-      this.router.navigate(['/score'], { queryParams: { score: this.score } }); // Passa a pontuação para a rota de score como parâmetro
+      this.router.navigate(['/score'], { queryParams: { score: this.score } });
     }
   }
 
@@ -68,7 +68,7 @@ export class GameComponent implements OnInit, OnDestroy {
   checkAnswer(index: number) {
     if (!this.answerChosen) {
       this.answerChosen = true;
-      this.answerIndex = index; // Armazena o índice da resposta escolhida
+      this.answerIndex = index;
       const selectedChoice = this.currentQuestion.choices[index];
       if (selectedChoice === this.currentQuestion.answer) {
         this.score += 10;
