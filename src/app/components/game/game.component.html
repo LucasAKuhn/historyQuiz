@@ -1,7 +1,8 @@
 <div id="quiz">
   <p id="temporizador" style="display: contents; color: red;" title="{{ timeLeft }}">{{ timeLeft }}</p>
-  <h2 id="question">TESTE PERGUNTA</h2>
-  <p id="progress">TEMPO</p>
+  <h2 id="question">{{ currentQuestion.question }}</h2>
+
+  <p id="progress">QUESTOES</p>
   <div id="choices">
     <button class="button" id="btn0">OPCAO 1</button>
     <button class="button" id="btn1">OPCAO 2</button>
