@@ -118,6 +118,56 @@ export const questions = [
     question: "Quem foi o líder sul-africano conhecido por seu papel na luta contra o apartheid?",
     choices: ["Nelson Mandela", "Desmond Tutu", "F. W. de Klerk"],
     answer: "Nelson Mandela"
+  },
+  {
+    question: "Qual foi o ano da independência dos Estados Unidos?",
+    choices: ["1776", "1783", "1812"],
+    answer: "1776"
+  },
+  {
+    question: "Quem foi o primeiro imperador de Roma?",
+    choices: ["Júlio César", "Augusto", "Nero"],
+    answer: "Augusto"
+  },
+  {
+    question: "Em que ano começou a Primeira Guerra Mundial?",
+    choices: ["1914", "1918", "1939"],
+    answer: "1914"
+  },
+  {
+    question: "Qual país foi liderado por Genghis Khan?",
+    choices: ["China", "Japão", "Mongólia"],
+    answer: "Mongólia"
+  },
+  {
+    question: "Quem descobriu a América em 1492?",
+    choices: ["Cristóvão Colombo", "Vasco da Gama", "Ferdinando Magalhães"],
+    answer: "Cristóvão Colombo"
+  },
+  {
+    question: "Em que ano o muro de Berlim foi derrubado?",
+    choices: ["1989", "1991", "1975"],
+    answer: "1989"
+  },
+  {
+    question: "Quem foi o primeiro presidente dos Estados Unidos?",
+    choices: ["Thomas Jefferson", "George Washington", "Abraham Lincoln"],
+    answer: "George Washington"
+  },
+  {
+    question: "Qual foi a civilização antiga que construiu as pirâmides de Gizé?",
+    choices: ["Maias", "Astecas", "Egípcios"],
+    answer: "Egípcios"
+  },
+  {
+    question: "Em que ano o Titanic afundou?",
+    choices: ["1912", "1905", "1920"],
+    answer: "1912"
+  },
+  {
+    question: "Quem pintou a Mona Lisa?",
+    choices: ["Vincent van Gogh", "Leonardo da Vinci", "Michelangelo"],
+    answer: "Leonardo da Vinci"
   }
 ];
 
