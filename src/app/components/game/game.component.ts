@@ -12,6 +12,8 @@ export class GameComponent implements OnInit, OnDestroy {
   questions: any[] = [];
   currentQuestion: any = {};
   questionIndex: number = 0;
+  score: number = 0;
+  answerChosen: boolean = false; // Flag para controlar se uma resposta já foi escolhida
 
   ngOnInit(): void {
     fisherYatesShuffle(questions);
@@ -28,12 +30,14 @@ export class GameComponent implements OnInit, OnDestroy {
 
   startTimer() {
     this.interval = setInterval(() => {
-      if (this.timeLeft > 0) {
+      if (this.timeLeft > 0 && !this.answerChosen) { // Verifica se uma resposta já foi escolhida
         this.timeLeft--;
       } else {
         clearInterval(this.interval);
-        this.nextQuestion();
-        this.timeLeft = 10;
+        if (!this.answerChosen) {
+          this.nextQuestion();
+          this.timeLeft = 10;
+        }
       }
     }, 1000);
   }
@@ -42,9 +46,9 @@ export class GameComponent implements OnInit, OnDestroy {
     if (this.questionIndex < this.questions.length - 1) {
       this.questionIndex++;
       this.currentQuestion = this.questions[this.questionIndex];
-      this.timeLeft = 10;
       this.shuffleChoices();
       this.startTimer();
+      this.answerChosen = false; // Reseta a flag de resposta escolhida
     } else {
       console.log('Jogo finalizado!');
     }
@@ -55,14 +59,19 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   checkAnswer(index: number) {
-    const selectedChoice = this.currentQuestion.choices[index];
-    if (selectedChoice === this.currentQuestion.answer) {
-      console.log('Resposta correta!');
-    } else {
-      console.log('Resposta incorreta!');
+    if (!this.answerChosen) { // Verifica se uma resposta já foi escolhida
+      this.answerChosen = true;
+      const selectedChoice = this.currentQuestion.choices[index];
+      if (selectedChoice === this.currentQuestion.answer) {
+        this.score += 10; // Incrementa a pontuação em 10 pontos
+        console.log('Resposta correta! Pontuação: ', this.score);
+      } else {
+        console.log('Resposta incorreta!');
+      }
+      setTimeout(() => {
+        this.nextQuestion();
+        this.timeLeft = 10;
+      }, 2000);
     }
   }
-
-
-
 }
