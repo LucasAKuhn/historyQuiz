@@ -4,8 +4,8 @@
 
   <p id="progress">QUESTOES</p>
   <div id="choices">
-    <button class="button" id="btn0">OPCAO 1</button>
-    <button class="button" id="btn1">OPCAO 2</button>
-    <button class="button" id="btn2">OPCAO 3</button>
+    <button class="button" id="btn0" (click)="checkAnswer(0)">{{ currentQuestion.choices[0] }}</button>
+    <button class="button" id="btn1" (click)="checkAnswer(1)">{{ currentQuestion.choices[1] }}</button>
+    <button class="button" id="btn2" (click)="checkAnswer(2)">{{ currentQuestion.choices[2] }}</button>
   </div>
 </div>

@@ -34,7 +34,6 @@ export class GameComponent implements OnInit, OnDestroy {
         clearInterval(this.interval);
         this.nextQuestion();
         this.timeLeft = 10;
-        this.startTimer();
       }
     }, 1000);
   }
@@ -44,9 +43,28 @@ export class GameComponent implements OnInit, OnDestroy {
       this.questionIndex++;
       this.currentQuestion = this.questions[this.questionIndex];
       this.timeLeft = 10;
+      this.shuffleChoices(); // Chama o método para embaralhar as escolhas
       this.startTimer();
     } else {
-
+      // Lógica para finalizar o jogo
+      console.log('Jogo finalizado!');
+      // Por exemplo, você pode reiniciar o jogo ou mostrar uma mensagem de conclusão
     }
   }
+
+  shuffleChoices() {
+    fisherYatesShuffle(this.currentQuestion.choices);
+  }
+
+  checkAnswer(index: number) {
+    const selectedChoice = this.currentQuestion.choices[index];
+    if (selectedChoice === this.currentQuestion.answer) {
+      console.log('Resposta correta!');
+    } else {
+      console.log('Resposta incorreta!');
+    }
+  }
+
+
+
 }
