@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { questions, fisherYatesShuffle } from '../../model/questions';
 
 @Component({
@@ -8,7 +8,7 @@ import { questions, fisherYatesShuffle } from '../../model/questions';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit, OnDestroy {
-  timeLeft: number = 1000;
+  timeLeft: number = 10;
   interval: any;
   questions: any[] = [];
   currentQuestion: any = {};
@@ -79,7 +79,7 @@ export class GameComponent implements OnInit, OnDestroy {
       setTimeout(() => {
         this.nextQuestion();
         this.timeLeft = 10;
-      }, 2000);
+      }, 1000);
     }
   }
 }
